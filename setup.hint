@@ -1,0 +1,4 @@
+category: Xfce
+requires: cygwin glib2 gtk2-x11 libX11_6 libintl8 libxfce4mcs libxfce4util libxfcegui4 pango xfce-mcs-manager xcfe4-panel
+sdesc: "Xfce4 calendar"
+ldesc: "Time-managing application for the Xfce desktop environment."
