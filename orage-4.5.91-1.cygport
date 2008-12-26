@@ -1,3 +1,0 @@
-inherit xfce4
-
-PATCH_URI="4.5.91-panel_plugin-ldflags.patch"
