@@ -1,4 +1,4 @@
 category: Gnome
-requires: cygwin libglib2.0_0 libgtk2.0_0 libdbus-glib_1_2 libdbus1_3 libintl8 libnotify1 libX11_6 libxfce4util4 libxfcegui4_4 libpango1.0_0
+requires: cygwin libgcc1 libglib2.0_0 libgtk2.0_0 libdbus-glib_1_2 libdbus1_3 libintl8 libnotify1 libX11_6 libxfce4util4 libxfcegui4_4 libpango1.0_0
 sdesc: "Xfce4 calendar"
 ldesc: "Time-managing application for the Xfce desktop environment."
