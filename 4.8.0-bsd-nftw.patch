@@ -1,0 +1,80 @@
+Already fixed in git master (pre-4.8.1)
+
+--- origsrc/orage-4.8.0/src/tz_zoneinfo_read.c	2011-01-13 07:09:46.000000000 -0600
++++ src/orage-4.8.0/src/tz_zoneinfo_read.c	2011-01-19 01:54:52.655505700 -0600
+@@ -23,7 +23,6 @@
+ #include <config.h>
+ #endif
+ 
+-#include <error.h>
+ #include <errno.h>
+     /* errno */
+ 
+@@ -55,6 +54,12 @@
+ #define _GNU_SOURCE 1
+ #define __USE_GNU 1
+ #include <ftw.h>
++#ifndef FTW_CONTINUE
++#define FTW_CONTINUE 0
++#endif
++#ifndef FTW_ACTIONRETVAL
++#define FTW_ACTIONRETVAL 0
++#endif
+     /* nftw */
+ 
+ #define DEFAULT_OS_ZONEINFO_DIRECTORY  "/usr/share/zoneinfo"
+@@ -568,6 +573,7 @@ static int file_call(const char *file_na
+     else if (flags == FTW_D) { /* this is directory */
+         if (debug > 0)
+             printf("\tfile_call: processing directory=(%s)\n", file_name);
++#if FTW_ACTIONRETVAL > 0
+         /* need to check if we have excluded directory */
+         for (i = 0; (i <= excl_dir_cnt) && excl_dir[i]; i++) {
+             if (strcmp(excl_dir[i],  file_name+f->base) == 0) {
+@@ -577,6 +583,7 @@ static int file_call(const char *file_na
+                 return(FTW_SKIP_SUBTREE);
+             }
+         }
++#endif
+     }
+     else if (flags == FTW_SL) {
+         if (debug > 0) {
+--- origsrc/orage-4.8.0/tz_convert/tz_convert.c	2011-01-13 07:09:46.000000000 -0600
++++ src/orage-4.8.0/tz_convert/tz_convert.c	2011-01-19 02:02:07.319063600 -0600
+@@ -19,7 +19,6 @@
+         Boston, MA 02110-1301 USA
+  */
+ 
+-#include <error.h>
+ #include <errno.h>
+     /* errno */
+ 
+@@ -52,6 +51,12 @@
+ #define _GNU_SOURCE 1
+ #define __USE_GNU 1
+ #include <ftw.h>
++#ifndef FTW_CONTINUE
++#define FTW_CONTINUE 0
++#endif
++#ifndef FTW_ACTIONRETVAL
++#define FTW_ACTIONRETVAL 0
++#endif
+     /* nftw */
+ 
+ #define DEFAULT_ZONEINFO_DIRECTORY  "/usr/share/zoneinfo"
+@@ -1467,6 +1472,7 @@ int file_call(const char *file_name, con
+     else if (flags == FTW_D) { /* this is directory */
+         if (debug > 0)
+             printf("\tfile_call: processing directory=(%s)\n", file_name);
++#if FTW_ACTIONRETVAL > 0
+         if (only_one_level && f->level > 0) {
+             if (debug > 0)
+                 printf("\t\tfile_call: skipping it, not on top level\n");
+@@ -1481,6 +1487,7 @@ int file_call(const char *file_name, con
+                 return(FTW_SKIP_SUBTREE);
+             }
+         }
++#endif
+         create_ical_directory(file_name);
+     }
+     else if (flags == FTW_SL) {
