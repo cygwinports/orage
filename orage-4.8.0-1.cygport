@@ -1,4 +1,0 @@
-inherit xfce4
-
-
-PATCH_URI="4.8.0-bsd-nftw.patch"
