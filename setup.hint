@@ -1,4 +1,4 @@
 category: Xfce
-requires: libcairo libdbus-glib_1_2 libdbus1_3 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libical0 libintl8 libnotify1 libpango1.0_0 libpopt0 libX11_6 libxfce4util4
+requires: libcairo libdbus-glib_1_2 libdbus1_3 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libical0 libintl8 libnotify4 libpango1.0_0 libpopt0 libX11_6 libxfce4util4
 sdesc: "Xfce4 calendar"
 ldesc: "Time-managing application for the Xfce desktop environment."
