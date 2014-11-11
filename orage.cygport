@@ -6,3 +6,5 @@ RELEASE=1
 CATEGORY="Xfce"
 SUMMARY="Xfce4 calendar"
 DESCRIPTION="Time-managing application for the Xfce desktop environment."
+
+REQUIRES="tzcode"
