@@ -2,7 +2,7 @@ inherit xfce4
 
 NAME="orage"
 VERSION=4.12.1
-RELEASE=1
+RELEASE=2
 CATEGORY="Xfce"
 SUMMARY="Xfce4 calendar"
 DESCRIPTION="Time-managing application for the Xfce desktop environment."
